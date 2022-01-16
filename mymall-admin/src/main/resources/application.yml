@@ -4,10 +4,13 @@ server:
 spring:
   profiles:
     active: dev
+  application:
+    name: mymall-admin
 #  security:
 #    user:
 #      name: user
 #      password: 111111
+
 mybatis-plus:
   mapper-locations: classpath*:/mapper/**Mapper.xml
 

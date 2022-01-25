@@ -18,8 +18,8 @@ public class RedisConfig {
      * 去掉key前面的乱码
      * @return
      */
-    @Bean
-    public RedisTemplate<String, Object> redisTemplateInit(RedisConnectionFactory redisConnectionFactory) {
+    @Bean(value = "redisTemp")
+    public RedisTemplate redisTemplateInit(RedisConnectionFactory redisConnectionFactory) {
         //设置序列化Key的实例化对象
         RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
         redisTemplate.setConnectionFactory(redisConnectionFactory);
@@ -32,6 +32,7 @@ public class RedisConfig {
         redisTemplate.setHashKeySerializer(stringRedisSerializer);
         redisTemplate.setHashValueSerializer(jackson2JsonRedisSerializer);
         redisTemplate.setValueSerializer(jackson2JsonRedisSerializer);
+
         return redisTemplate;
     }
 

@@ -27,7 +27,7 @@ public class UserDetailServiceImpl implements UserDetailsService {
 
         SysUser sysUser = sysUserService.getByUsername(username);
         if (sysUser == null) {
-            throw new UsernameNotFoundException("用户名或密码不正确");
+            throw new UsernameNotFoundException("无此用户");
         }
         return new AccountUser(sysUser.getUserId(), sysUser.getUsername(), sysUser.getPassword(), getUserAuthority(sysUser.getUserId()));
     }

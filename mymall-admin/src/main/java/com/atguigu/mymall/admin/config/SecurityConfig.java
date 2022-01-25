@@ -86,7 +86,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers(URL_WHITELIST).permitAll()
-                //.anyRequest().authenticated()
+                .anyRequest().authenticated()
 
                 // 异常处理器
                 .and()

@@ -1,11 +1,13 @@
 package com.atguigu.mymall.admin.util;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ZSetOperations;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
-import java.util.Collection;
+
+ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -14,6 +16,7 @@ import java.util.concurrent.TimeUnit;
 @Component
 public class RedisUtil {
 
+    @Qualifier(value = "redisTemp")
     @Autowired
     private RedisTemplate redisTemplate;
 

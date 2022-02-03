@@ -3,6 +3,8 @@ package com.atguigu.mymall.admin.mapper;
 import com.atguigu.mymall.admin.entity.SysUser;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
+import java.util.List;
+
 /**
 * @author mingchiuli
 * @description 针对表【sys_user(系统用户)】的数据库操作Mapper
@@ -10,6 +12,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 * @Entity com.atguigu.mymall.admin.entity.SysUser
 */
 public interface SysUserMapper extends BaseMapper<SysUser> {
+
+    List<Long> getNavMenuIds(Long userId);
 
 }
 

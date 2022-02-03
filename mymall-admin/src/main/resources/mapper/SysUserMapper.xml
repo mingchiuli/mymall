@@ -21,4 +21,16 @@
         salt,email,mobile,
         status,create_user_id,create_time
     </sql>
+
+
+    <select id="getNavMenuIds" resultType="java.lang.Long">
+        SELECT
+            DISTINCT rm.menu_id
+        FROM
+            sys_user_role ur
+                LEFT JOIN sys_role_menu rm ON ur.role_id = rm.role_id
+
+        WHERE ur.user_id = #{userId}
+
+    </select>
 </mapper>

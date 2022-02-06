@@ -1,4 +1,4 @@
-package com.atguigu.mymall.admin.common.lang;
+package com.atguigu.mymall.common.utils;
 
 
 import lombok.Data;

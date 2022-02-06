@@ -1,8 +1,8 @@
 package com.atguigu.mymall.admin.security;
 
 import cn.hutool.json.JSONUtil;
-import com.atguigu.mymall.admin.common.lang.Result;
 import com.atguigu.mymall.admin.util.JwtUtils;
+import com.atguigu.mymall.common.utils.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;

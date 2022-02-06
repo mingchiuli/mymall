@@ -2,9 +2,9 @@ package com.atguigu.mymall.admin.controller;
 
 import cn.hutool.core.lang.UUID;
 import cn.hutool.core.map.MapUtil;
+import com.atguigu.mymall.common.utils.Result;
 import com.google.code.kaptcha.Producer;
 import com.atguigu.mymall.admin.common.lang.Const;
-import com.atguigu.mymall.admin.common.lang.Result;
 import com.atguigu.mymall.admin.entity.SysUser;
 import com.atguigu.mymall.admin.service.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +26,7 @@ import java.util.Base64;
 
 
 @RestController
-public class AuthController {
+public class AuthController extends BaseController {
 
     @Autowired
     HttpServletRequest req;
@@ -87,6 +87,14 @@ public class AuthController {
                 .put("created", sysUser.getCreateTime())
                 .map()
         );
+    }
+
+    @GetMapping("/test")
+    public Result test() {
+        SysUser user = sysUserService.getById(1);
+
+        return Result.succ(user);
+
     }
 
 

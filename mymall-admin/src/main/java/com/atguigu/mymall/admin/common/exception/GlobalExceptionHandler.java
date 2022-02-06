@@ -1,6 +1,6 @@
 package com.atguigu.mymall.admin.common.exception;
 
-import com.atguigu.mymall.admin.common.lang.Result;
+import com.atguigu.mymall.common.utils.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;

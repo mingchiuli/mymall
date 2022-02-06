@@ -2,7 +2,7 @@ package com.atguigu.mymall.admin.security;
 
 
 import cn.hutool.json.JSONUtil;
-import com.atguigu.mymall.admin.common.lang.Result;
+import com.atguigu.mymall.common.utils.Result;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.stereotype.Component;

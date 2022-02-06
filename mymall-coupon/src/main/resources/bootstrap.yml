@@ -1,0 +1,19 @@
+#标注配置中心的地址，发布配置默认名字为mymall-coupon.properties(不是yaml)，需要改成yaml
+spring:
+  application:
+    name: mymall-coupon
+  cloud:
+    nacos:
+      config:
+        namespace: a6de2bf4-8b33-4e00-bc88-e17d18f5237f #nacos命名空间
+        file-extension: yml
+        extension-configs[0].dataId: datasource.yml
+        extension-configs[0].group: dev
+        extension-configs[0].refresh: true
+        extension-configs[1].dataId: mybatis.yml
+        extension-configs[1].group: dev
+        extension-configs[1].refresh: true
+        extension-configs[2].dataId: other.yml
+        extension-configs[2].group: dev
+        extension-configs[2].refresh: true
+        group: dev

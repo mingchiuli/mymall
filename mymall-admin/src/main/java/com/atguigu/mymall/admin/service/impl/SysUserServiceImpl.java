@@ -59,7 +59,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser>
         } else {
             // 获取角色编码
             List<SysRole> roles = sysRoleService.list(new QueryWrapper<SysRole>()
-                    .inSql("id", "select role_id from sys_user_role where user_id = " + userId));
+                    .inSql("role_id", "select role_id from sys_user_role where user_id = " + userId));
 
             if (roles.size() > 0) {
                 String roleCodes = roles.stream().map(r -> "ROLE_" + r.getRoleName()).collect(Collectors.joining(","));

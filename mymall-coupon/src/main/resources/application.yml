@@ -1,0 +1,15 @@
+#server:
+#  port: 8083
+# DataSource Config
+#spring:
+#  profiles:
+#    active: dev
+#  application:
+#    name: mymall-coupon
+#
+#
+coupon:
+  user:
+    name: zhangsan
+    age: 18
+

@@ -1,7 +1,7 @@
 package com.atguigu.mymall.admin.security;
 
 import cn.hutool.json.JSONUtil;
-import com.atguigu.mymall.admin.common.lang.Result;
+import com.atguigu.mymall.common.utils.Result;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.stereotype.Component;

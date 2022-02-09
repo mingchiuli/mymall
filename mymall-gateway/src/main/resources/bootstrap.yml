@@ -1,0 +1,8 @@
+spring:
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: a6aefaa5-87fa-48b6-bff6-c29f326f47fc
+  application:
+    name: mymall-gateway

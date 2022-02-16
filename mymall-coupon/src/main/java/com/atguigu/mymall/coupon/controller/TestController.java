@@ -1,6 +1,5 @@
 package com.atguigu.mymall.coupon.controller;
 
-import com.atguigu.mymall.common.utils.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -20,9 +19,4 @@ public class TestController {
 
     @Value("${coupon.user.age}")
     private Integer age;
-
-    @GetMapping("/test")
-    public Result test() {
-        return Result.succ("这是coupon" + name + age);
-    }
 }

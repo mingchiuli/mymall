@@ -1,8 +1,7 @@
 package com.atguigu.mymall.admin.controller;
 
 import cn.hutool.core.lang.UUID;
-import cn.hutool.core.map.MapUtil;
-import com.atguigu.mymall.common.utils.Result;
+import com.atguigu.mymall.common.utils.R;
 import com.google.code.kaptcha.Producer;
 import com.atguigu.mymall.admin.common.lang.Const;
 import com.atguigu.mymall.admin.entity.SysUser;
@@ -18,6 +17,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.security.Principal;
 import java.util.Base64;
+import java.util.Objects;
 
 /**
  * @author mingchiuli
@@ -41,7 +41,7 @@ public class AuthController extends BaseController {
     Producer producer;
 
     @GetMapping("/captcha")
-    public Result captcha() throws IOException {
+    public R captcha() throws IOException {
 
         String key = UUID.randomUUID().toString();
         String code = producer.createText();
@@ -62,13 +62,8 @@ public class AuthController extends BaseController {
 
         redisUtil.hset(Const.CAPTCHA_KEY, key, code, 120);
 
-        return Result.succ(
-                MapUtil.builder()
-                        .put("token", key)
-                        .put("captchaImg", base64Img)
-                        .build()
-
-        );
+        return R.ok().put("token", key)
+                .put("captchaImg", base64Img);
     }
 
     /**
@@ -77,23 +72,20 @@ public class AuthController extends BaseController {
      * @return
      */
     @GetMapping("/sys/userInfo")
-    public Result userInfo(Principal principal) {
+    public R userInfo(Principal principal) {
 
         SysUser sysUser = sysUserService.getByUsername(principal.getName());
 
-        return Result.succ(MapUtil.builder()
-                .put("id", sysUser.getUserId())
+        return R.ok().put("id", sysUser.getUserId())
                 .put("username", sysUser.getUsername())
-                .put("created", sysUser.getCreateTime())
-                .map()
-        );
+                .put("created", sysUser.getCreateTime());
     }
 
     @GetMapping("/test")
-    public Result test() {
+    public R test() {
         SysUser user = sysUserService.getById(1);
 
-        return Result.succ(user);
+        return R.ok().put("user", user);
 
     }
 

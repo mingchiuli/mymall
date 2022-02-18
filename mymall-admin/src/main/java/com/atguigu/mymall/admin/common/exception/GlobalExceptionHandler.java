@@ -1,6 +1,6 @@
 package com.atguigu.mymall.admin.common.exception;
 
-import com.atguigu.mymall.common.utils.Result;
+import com.atguigu.mymall.common.utils.R;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
@@ -23,27 +23,27 @@ public class GlobalExceptionHandler {
     // 实体校验异常捕获
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(value = MethodArgumentNotValidException.class)
-    public Result handler(MethodArgumentNotValidException e) {
+    public R handler(MethodArgumentNotValidException e) {
 
         BindingResult result = e.getBindingResult();
         ObjectError objectError = result.getAllErrors().stream().findFirst().get();
 
         log.error("实体校验异常：----------------{}", objectError.getDefaultMessage());
-        return Result.fail(objectError.getDefaultMessage());
+        return R.error(objectError.getDefaultMessage());
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(value = IllegalArgumentException.class)
-    public Result handler(IllegalArgumentException e) {
+    public R handler(IllegalArgumentException e) {
         log.error("Assert异常：----------------{}", e.getMessage());
-        return Result.fail(e.getMessage());
+        return R.error(e.getMessage());
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(value = RuntimeException.class)
-    public Result handler(RuntimeException e) {
+    public R handler(RuntimeException e) {
         log.error("运行时异常：----------------{}", e.getMessage());
-        return Result.fail(e.getMessage());
+        return R.error(e.getMessage());
     }
 
 }

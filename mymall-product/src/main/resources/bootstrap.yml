@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: mymall-product
+
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: 0e4febe2-3be4-4ea3-81c0-f8dc61d14a45
+

@@ -2,7 +2,7 @@ package com.atguigu.mymall.admin.security;
 
 
 import cn.hutool.json.JSONUtil;
-import com.atguigu.mymall.common.utils.Result;
+import com.atguigu.mymall.common.utils.R;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.stereotype.Component;
@@ -25,7 +25,7 @@ public class LoginFailureHandler implements AuthenticationFailureHandler {
         response.setContentType("application/json;charset=UTF-8");
         ServletOutputStream outputStream = response.getOutputStream();
 
-        Result result = Result.fail(exception.getMessage());
+        R result = R.error(exception.getMessage());
 
         outputStream.write(JSONUtil.toJsonStr(result).getBytes("UTF-8"));
 

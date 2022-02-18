@@ -2,7 +2,7 @@ package com.atguigu.mymall.admin.security;
 
 import cn.hutool.json.JSONUtil;
 import com.atguigu.mymall.admin.util.JwtUtils;
-import com.atguigu.mymall.common.utils.Result;
+import com.atguigu.mymall.common.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
@@ -36,7 +36,8 @@ public class JwtLogoutSuccessHandler implements LogoutSuccessHandler {
 
         response.setHeader(jwtUtils.getHeader(), "");
 
-        Result result = Result.succ("");
+
+        R result = R.ok("");
 
         outputStream.write(JSONUtil.toJsonStr(result).getBytes("UTF-8"));
 

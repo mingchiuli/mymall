@@ -1,6 +1,5 @@
 package com.atguigu.mymall.admin.security;
 
-
 import com.atguigu.mymall.admin.entity.SysUser;
 import com.atguigu.mymall.admin.service.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;

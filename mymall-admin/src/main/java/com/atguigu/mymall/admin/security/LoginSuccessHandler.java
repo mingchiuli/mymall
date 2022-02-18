@@ -3,7 +3,7 @@ package com.atguigu.mymall.admin.security;
 
 import cn.hutool.json.JSONUtil;
 import com.atguigu.mymall.admin.util.JwtUtils;
-import com.atguigu.mymall.common.utils.Result;
+import com.atguigu.mymall.common.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
@@ -34,7 +34,9 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
         String jwt = jwtUtils.generateToken(username);
         response.setHeader(jwtUtils.getHeader(), jwt);
 
-        Result result = Result.succ("");
+
+
+        R result = R.ok().put("authorization", jwt);
 
         outputStream.write(JSONUtil.toJsonStr(result).getBytes("UTF-8"));
 

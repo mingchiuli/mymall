@@ -56,9 +56,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private static final String[] URL_WHITELIST = {
 
-            "/login",
-            "/logout",
-            "/captcha",
+            "/admin/login",
+            "/admin/logout",
+            "/admin/captcha",
             "/favicon.ico",
 
     };
@@ -69,12 +69,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.cors().and().csrf().disable()
 
                 // 登录配置
-                .formLogin()
+                .formLogin().loginPage("/admin/login")
                 .successHandler(loginSuccessHandler)
                 .failureHandler(loginFailureHandler)
 
                 .and()
-                .logout()
+                .logout().logoutUrl("/admin/logout")
                 .logoutSuccessHandler(jwtLogoutSuccessHandler)
 
                 // 禁用session

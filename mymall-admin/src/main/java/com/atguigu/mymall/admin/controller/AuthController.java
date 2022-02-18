@@ -8,6 +8,7 @@ import com.atguigu.mymall.admin.entity.SysUser;
 import com.atguigu.mymall.admin.service.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.atguigu.mymall.admin.util.RedisUtil;
 import javax.imageio.ImageIO;
@@ -17,14 +18,13 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.security.Principal;
 import java.util.Base64;
-import java.util.Objects;
 
 /**
  * @author mingchiuli
  * @create 2022-01-25 4:45 PM
  */
 
-
+@RequestMapping("/admin")
 @RestController
 public class AuthController extends BaseController {
 
@@ -86,8 +86,6 @@ public class AuthController extends BaseController {
         SysUser user = sysUserService.getById(1);
 
         return R.ok().put("user", user);
-
     }
-
 
 }

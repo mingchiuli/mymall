@@ -1,9 +1,7 @@
 package com.atguigu.mymall.product.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -39,8 +37,10 @@ public class CategoryEntity implements Serializable {
     private Integer catLevel;
 
     /**
+     * 逻辑删除
      * 是否显示[0-不显示，1显示]
      */
+    @TableLogic(value = "1", delval = "0")
     private Integer showStatus;
 
     /**

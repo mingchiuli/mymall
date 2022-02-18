@@ -1,7 +1,7 @@
 package com.atguigu.mymall.admin.security;
 
 import cn.hutool.json.JSONUtil;
-import com.atguigu.mymall.common.utils.Result;
+import com.atguigu.mymall.common.utils.R;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.stereotype.Component;
@@ -26,7 +26,7 @@ public class JwtAccessDeniedHandler implements AccessDeniedHandler {
 
         ServletOutputStream outputStream = response.getOutputStream();
 
-        Result result = Result.fail(accessDeniedException.getMessage());
+        R result = R.error(accessDeniedException.getMessage());
 
         outputStream.write(JSONUtil.toJsonStr(result).getBytes("UTF-8"));
 

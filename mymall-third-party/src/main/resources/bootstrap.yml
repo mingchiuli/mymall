@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: mymall-third-party
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: 25a27f62-6675-4f41-a042-473d896500a2
+        extension-configs[0].dataId: oos.yml
+        extension-configs[0].group: DEFAULT_GROUP
+        extension-configs[0].refresh: true
+
+

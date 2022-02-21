@@ -13,9 +13,9 @@ import lombok.Data;
  */
 @TableName(value ="pms_category_brand_relation")
 @Data
-public class PmsCategoryBrandRelation implements Serializable {
+public class CategoryBrandRelationEntity implements Serializable {
     /**
-     * 
+     *
      */
     @TableId(type = IdType.AUTO)
     private Long id;
@@ -31,12 +31,12 @@ public class PmsCategoryBrandRelation implements Serializable {
     private Long catelogId;
 
     /**
-     * 
+     *
      */
     private String brandName;
 
     /**
-     * 
+     *
      */
     private String catelogName;
 

@@ -3,7 +3,7 @@ package com.atguigu.mymall.product.service.impl;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.atguigu.mymall.product.entity.CategoryEntity;
 import com.atguigu.mymall.product.service.CategoryService;
-import com.atguigu.mymall.product.mapper.PmsCategoryMapper;
+import com.atguigu.mymall.product.mapper.CategoryMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.Comparator;
@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 * @createDate 2022-02-16 09:37:18
 */
 @Service
-public class CategoryServiceImpl extends ServiceImpl<PmsCategoryMapper, CategoryEntity>
+public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, CategoryEntity>
     implements CategoryService {
 
     @Override

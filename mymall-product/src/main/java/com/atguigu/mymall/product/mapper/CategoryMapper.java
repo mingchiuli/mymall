@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 * @createDate 2022-02-16 09:37:18
 * @Entity com.atguigu.mymall.product.entity.PmsCategory
 */
-public interface PmsCategoryMapper extends BaseMapper<CategoryEntity> {
+public interface CategoryMapper extends BaseMapper<CategoryEntity> {
 
 }
 

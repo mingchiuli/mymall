@@ -1,10 +1,5 @@
 spring:
   cloud:
-#    alicloud: #写到nacos里了
-#      access-key: LTAI5tKWrqzfTEHMsPMrJYUt
-#      secret-key: ORdGSyu8UL91OjsR2Gt92EU5vdD5lj
-#      oss:
-#        endpoint: oss-cn-guangzhou.aliyuncs.com
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848

@@ -9,7 +9,7 @@
 package com.atguigu.mymall.common.utils;
 
 import com.atguigu.mymall.common.xss.SQLFilter;
-import com.baomidou.mybatisplus.core.metadata.IPage;
+//import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.metadata.OrderItem;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.commons.lang.StringUtils;
@@ -23,14 +23,14 @@ import java.util.Map;
  */
 public class Query<T> {
 
-    public IPage<T> getPage(Map<String, Object> params) {
+    public Page<T> getPage(Map<String, Object> params) {
         return this.getPage(params, null, false);
     }
 
-    public IPage<T> getPage(Map<String, Object> params, String defaultOrderField, boolean isAsc) {
+    public Page<T> getPage(Map<String, Object> params, String defaultOrderField, boolean isAsc) {
         //分页参数
-        long curPage = 1;
-        long limit = 10;
+        long curPage = Long.parseLong((String) params.get("page"));
+        long limit = Long.parseLong((String) params.get("limit"));
 
         if (params.get(Constant.PAGE) != null) {
 //            curPage = Long.parseLong((String) params.get(Constant.PAGE));

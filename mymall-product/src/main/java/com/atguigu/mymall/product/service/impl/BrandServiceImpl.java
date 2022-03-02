@@ -4,7 +4,7 @@ import com.atguigu.mymall.common.utils.PageUtils;
 import com.atguigu.mymall.common.utils.Query;
 import com.atguigu.mymall.product.service.CategoryBrandRelationService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.atguigu.mymall.product.entity.BrandEntity;
 import com.atguigu.mymall.product.service.BrandService;
@@ -39,9 +39,7 @@ public class BrandServiceImpl extends ServiceImpl<BrandMapper, BrandEntity>
         if (!StringUtils.isEmpty(key)) {
             queryWrapper.eq("brand_id", key).or().like("name", key);
         }
-        IPage<BrandEntity> page = this.page(
-                new Query<BrandEntity>().getPage(params),queryWrapper
-        );
+        Page<BrandEntity> page = page(new Query<BrandEntity>().getPage(params),queryWrapper);
         return new PageUtils(page);
     }
 

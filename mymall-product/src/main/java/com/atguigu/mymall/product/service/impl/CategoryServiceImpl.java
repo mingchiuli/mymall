@@ -6,9 +6,7 @@ import com.atguigu.mymall.product.service.CategoryService;
 import com.atguigu.mymall.product.mapper.CategoryMapper;
 import org.springframework.stereotype.Service;
 
-import java.util.Comparator;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -44,6 +42,26 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, CategoryEnt
     public void updateCascade(CategoryEntity category) {
         this.updateById(category);
 //        categoryBrandRelationService.updateCategory(category.getCatId(), category.getName());
+    }
+
+    @Override
+    public Long[] findCatelogPath(Long catelogId) {
+        List<Long> paths = new ArrayList<>();
+        List<Long> parentPath = findParentPath(catelogId, paths);
+
+        Collections.reverse(parentPath);
+        return parentPath.toArray(new Long[parentPath.size()]);
+    }
+
+    //递归 225
+    private List<Long> findParentPath(Long catelogId, List<Long> paths) {
+        //1 收集当前结点id
+        paths.add(catelogId);
+        CategoryEntity byId = this.getById(catelogId);
+        if (byId.getParentCid() != 0) {
+            findParentPath(byId.getParentCid(), paths);
+        }
+        return paths;
     }
 
     //递归查找所有菜单的子菜单

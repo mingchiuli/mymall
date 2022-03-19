@@ -1,10 +1,13 @@
 package com.atguigu.mymall.product.service.impl;
 
+import com.atguigu.mymall.product.service.CategoryBrandRelationService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.atguigu.mymall.product.entity.CategoryEntity;
 import com.atguigu.mymall.product.service.CategoryService;
 import com.atguigu.mymall.product.mapper.CategoryMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -17,6 +20,9 @@ import java.util.stream.Collectors;
 @Service
 public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, CategoryEntity>
     implements CategoryService {
+
+    @Autowired
+    CategoryBrandRelationService categoryBrandRelationService;
 
     @Override
     public List<CategoryEntity> listWithTree() {
@@ -39,9 +45,12 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, CategoryEnt
     }
 
     @Override
+    @Transactional
     public void updateCascade(CategoryEntity category) {
         this.updateById(category);
 //        categoryBrandRelationService.updateCategory(category.getCatId(), category.getName());
+        categoryBrandRelationService.updateCategory(category.getCatId(), category.getName());
+
     }
 
     @Override

@@ -10,8 +10,6 @@ import com.atguigu.mymall.product.service.AttrService;
 import com.atguigu.mymall.product.service.CategoryService;
 import com.atguigu.mymall.product.vo.AttrGroupRelationVo;
 import com.atguigu.mymall.product.vo.AttrGroupWithAttrsVo;
-import com.atguigu.mymall.product.service.AttrGroupService;
-import com.atguigu.mymall.product.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -51,9 +49,7 @@ public class AttrGroupController {
 
     //product/attrgroup/{attrgroupId}/noattr/relation
     @GetMapping("/{attrgroupId}/noattr/relation")
-    public R attrNoRelation(
-            @RequestParam Map<String, Object> params,
-            @PathVariable("attrgroupId") Long attrgroupId){
+    public R attrNoRelation(@RequestParam Map<String, Object> params, @PathVariable("attrgroupId") Long attrgroupId){
         PageUtils page = attrService.getNoRelationAttr(params, attrgroupId);
         return R.ok().put("page", page);
     }

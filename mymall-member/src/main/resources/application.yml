@@ -6,3 +6,7 @@ spring:
     active: dev
   application:
     name: mymall-member
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: auto

@@ -1,7 +1,10 @@
 package com.atguigu.mymall.admin.service;
 
 import com.atguigu.mymall.admin.entity.SysUser;
+import com.atguigu.mymall.common.utils.PageUtils;
 import com.baomidou.mybatisplus.extension.service.IService;
+
+import java.util.Map;
 
 /**
 * @author mingchiuli
@@ -13,5 +16,7 @@ public interface SysUserService extends IService<SysUser> {
     SysUser getByUsername(String username);
 
     String getUserAuthorityInfo(Long userId);
+
+    PageUtils queryPage(Map<String, Object> params);
 
 }

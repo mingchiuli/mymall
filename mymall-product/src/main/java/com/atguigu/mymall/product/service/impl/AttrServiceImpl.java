@@ -26,7 +26,6 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
-
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
@@ -171,7 +170,7 @@ public class AttrServiceImpl extends ServiceImpl<AttrMapper, AttrEntity> impleme
             relationEntity.setAttrGroupId(attrVo.getAttrGroupId());
             relationEntity.setAttrId(attrVo.getAttrId());
 
-            Integer count = relationDao.selectCount(new QueryWrapper<AttrAttrgroupRelationEntity>().eq("attr_id", attrVo.getAttrId()));
+            Long count = relationDao.selectCount(new QueryWrapper<AttrAttrgroupRelationEntity>().eq("attr_id", attrVo.getAttrId()));
             if (count > 0) {
                 relationDao.update(relationEntity, new UpdateWrapper<AttrAttrgroupRelationEntity>().eq("attr_id", attrVo.getAttrId()));
             } else {

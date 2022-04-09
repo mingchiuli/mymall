@@ -5,15 +5,20 @@ import com.atguigu.mymall.admin.entity.SysRole;
 import com.atguigu.mymall.admin.service.SysMenuService;
 import com.atguigu.mymall.admin.service.SysRoleService;
 import com.atguigu.mymall.admin.util.RedisUtil;
+import com.atguigu.mymall.common.utils.PageUtils;
+import com.atguigu.mymall.common.utils.Query;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.atguigu.mymall.admin.entity.SysUser;
 import com.atguigu.mymall.admin.service.SysUserService;
 import com.atguigu.mymall.admin.mapper.SysUserMapper;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -80,6 +85,21 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser>
         }
 
         return authority;
+    }
+
+    @Override
+    public PageUtils queryPage(Map<String, Object> params) {
+        String username = (String) params.get("username");
+        Long createUserId = (Long) params.get("createUserId");
+
+        IPage<SysUser> page = this.page(
+                new Query<SysUser>().getPage(params),
+                new QueryWrapper<SysUser>()
+                        .like(StringUtils.isNotBlank(username), "username", username)
+                        .eq(createUserId != null, "create_user_id", createUserId)
+        );
+
+        return new PageUtils(page);
     }
 }
 

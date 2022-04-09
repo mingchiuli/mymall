@@ -6,3 +6,9 @@ spring:
     active: dev
   application:
     name: mymall-ware
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: auto

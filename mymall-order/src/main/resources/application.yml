@@ -6,3 +6,12 @@ spring:
     active: dev
   application:
     name: mymall-order
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: auto
+#配置自定义的线程池
+mymall:
+  thread.core-size: 20
+  thread.max-size: 200
+  thread.keep-alive-time: 10

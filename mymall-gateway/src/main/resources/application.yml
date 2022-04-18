@@ -41,6 +41,12 @@ spring:
           filters:
             - RewritePath=/api/thirdparty/(?<segment>.*),/$\{segment}
 
+        - id: mymall-host-route
+          uri: lb://mymall-product
+          predicates:
+            - Host=**.localhost,localhost
+
+
 server:
   port: 88
 

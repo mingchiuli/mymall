@@ -55,7 +55,7 @@ public class AttrGroupController {
     }
 
     //product/attrgroup/attr/relation
-    @PostMapping("attr/relation")
+    @PostMapping("/attr/relation")
     public R addRelation(@RequestBody List<AttrGroupRelationVo> vos) {
         relationService.saveBatch(vos);
         return R.ok();

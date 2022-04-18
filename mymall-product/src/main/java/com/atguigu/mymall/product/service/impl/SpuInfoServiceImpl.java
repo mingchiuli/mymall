@@ -321,7 +321,7 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoMapper, SpuInfoEntity
         //TODO 5 将数据发送给es进行保存 gulimall-search
         R r = searchFeignService.productStatusUp(upProducts);
         Integer code = r.getCode();
-        if (code == 0) {
+        if (code == 200) {
             //远程调用成功
             //TODO 6 修改当前spu的状态
             baseMapper.updateSpuStatus(spuId, ProductConstant.StatusEnum.SPU_UP.getCode());

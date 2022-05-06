@@ -132,9 +132,9 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, CategoryEnt
 //        return null;//测试缓存空值
     }
 
-    @Override
+
     @Cacheable(value = "category", key = "#root.methodName")
-    public Map<String, List<Catelog2Vo>> getCatalogJson() {
+    public Map<String, List<Catelog2Vo>> getCatalogJson2() {
         System.out.println("查询数据库...");
         List<CategoryEntity> selectList = baseMapper.selectList(null);
 
@@ -174,8 +174,8 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, CategoryEnt
     //      可以通过-Dio.netty.maxDirectMemory进行设置
     //解决方案  不能使用-Dio.netty.maxDirectMemory只是去调大堆外内存。
     //        1)、升级Lettuce客户端。 2),切换使用jedis
-//    @Override
-    public Map<String, List<Catelog2Vo>> getCatalogJson2() {
+    @Override
+    public Map<String, List<Catelog2Vo>> getCatalogJson() {
         //给缓存中放入json字符串，拿出的json字符串，还要逆转为能用的对象【序列化与反序列化】
 
         /**

@@ -96,15 +96,15 @@
                 <li>
                     <a th:if="${session.loginUser!=null}">欢迎您: [[${session.loginUser == null
                         ?'':session.loginUser.nickname}]]</a>
-                    <a href="http://auth.gulimall.com/login.html" th:if="${session.loginUser==null}">欢迎您 ，请登录</a>
+                    <a href="http://auth.localhost/login.html" th:if="${session.loginUser==null}">欢迎您 ，请登录</a>
                 </li>
                 <li>
                     <a th:if="${session.loginUser == null}" class="li_2"
-                       href="http://auth.gulimall.com/reg.html">免费注册</a>
+                       href="http://auth.localhost/reg.html">免费注册</a>
                 </li>
                 <span>|</span>
                 <li>
-                    <a href="http://member.gulimall.com/memberOrder.html">我的订单</a>
+                    <a href="http://member.localhost/memberOrder.html">我的订单</a>
                 </li>
 
 
@@ -122,7 +122,7 @@
         <div class="header_ico">
             <div class="header_gw">
                 <img src="/static/index/img/img_15.png"/>
-                <span><a href="http://cart.gulimall.com/cart.html">我的购物车</a></span>
+                <span><a href="http://cart.localhost/cart.html">我的购物车</a></span>
                 <span>0</span>
             </div>
             <div class="header_ko">
@@ -204,7 +204,7 @@
             <div class="header_main_left">
                 <ul>
                     <li th:each="category: ${categorys}">
-                        <a href="search.gulimall.com" class="header_main_left_a" th:attr="ctg-data=${category.catId}"><b
+                        <a href="search.localhost" class="header_main_left_a" th:attr="ctg-data=${category.catId}"><b
                                 th:text="${category.name}">家用电器1</b></a>
                     </li>
                 </ul>
@@ -247,12 +247,12 @@
                             <p class="">Hi, 欢迎来到!</p>
                             <p>
                             <li>
-                                <a href="http://auth.gulimall.com/login.html" th:if="${session.loginUser == null}"
+                                <a href="http://auth.localhost/login.html" th:if="${session.loginUser == null}"
                                    class="li_2" style="color: #C81623;font-size: 12px">登录</a>
                                 <a th:if="${session.loginUser != null}" style="color: #C81623;font-size: 12px" class="li_2">亲爱的:[[${session.loginUser.nickname}]]</a>
                             </li>
                             <li>
-                                <a href="http://auth.gulimall.com/reg.html" style="color: #C81623;font-size: 12px"
+                                <a href="http://auth.localhost/reg.html" style="color: #C81623;font-size: 12px"
                                    th:if="${session.loginUser == null}">免费注册</a>
                             </li>
                             </p>
@@ -596,14 +596,14 @@
 <script type="text/javascript">
     function search() {
         var keyword = $("#searchText").val()
-        window.location.href = "http://search.gulimall.com/list.html?keyword=" + keyword;
+        window.location.href = "http://search.localhost/list.html?keyword=" + keyword;
     }
 
     function to_href(skuId) {
-        location.href = "http://item.gulimall.com/" + skuId + ".html";
+        location.href = "http://item.localhost/" + skuId + ".html";
     }
 
-    $.get("http://seckill.gulimall.com/currentSeckillSkus", function (resp) {
+    $.get("http://seckill.localhost/currentSeckillSkus", function (resp) {
         if (resp.data.length > 0) {
             resp.data.forEach(function (item) {
                 $("<li onclick='to_href(" + item.skuId + ")'></li>")

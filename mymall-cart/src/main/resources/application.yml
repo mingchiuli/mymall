@@ -1,0 +1,17 @@
+server:
+  port: 8089
+spring:
+  redis:
+    password: 123456
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  application:
+    name: mymall-cart
+
+mymall:
+  thread:
+    core-size: 20
+    max-size: 200
+    keep-alive-time: 10

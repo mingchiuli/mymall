@@ -1,4 +1,14 @@
 spring:
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+    publisher-returns: true
+    publisher-confirm-type: correlated
+    template:
+      mandatory: true
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     druid:

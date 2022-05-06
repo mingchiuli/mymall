@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -17,7 +18,7 @@ import java.util.List;
 //全参构造器
 @AllArgsConstructor
 @Data
-public class Catelog2Vo {
+public class Catelog2Vo implements Serializable {
 
     private String catalog1Id; //一级父分类
     private List<Catalog3Vo> catalog3List; // 3级子分类
@@ -29,7 +30,7 @@ public class Catelog2Vo {
     @NoArgsConstructor
     @AllArgsConstructor
     @Data
-    public static class Catalog3Vo {
+    public static class Catalog3Vo implements Serializable {
         private String catalog2Id;//父分类 2级分类id
         private String id;
         private String name;

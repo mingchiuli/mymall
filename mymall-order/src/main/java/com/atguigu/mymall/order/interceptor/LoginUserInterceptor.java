@@ -39,7 +39,7 @@ public class LoginUserInterceptor implements HandlerInterceptor {
         } else {
             //没登录 去登录页 来拦截
             session.setAttribute("msg", "请先登录～～");
-            response.sendRedirect("http://auth.gulimall.com/login.html");
+            response.sendRedirect("http://auth.localhost/login.html");
             return false;
         }
     }

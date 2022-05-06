@@ -72,7 +72,6 @@ public class MyRabbitMQConfig {
 
     @Bean
     public Queue orderReleaseOrderQueue() {
-
         //普通队列
         return new Queue("order.release.order.queue", true, false, false);
     }

@@ -1,6 +1,10 @@
 server:
   port: 12000
 spring:
+  session:
+    store-type: redis
+  thymeleaf:
+    cache: false
   cloud:
     #Nacos 注册中心
     nacos:
@@ -37,11 +41,14 @@ spring:
 #  sleuth:
 #    sampler:
       #配置sleuth采样器 100%
+    password: 123456
 #      probability: 1
 
 logging:
   level:
     com.atguigu.gulimall: debug
+
+
 
 #management.endpoints.web.exposure.include=*
 #配置actuator统计审计信息 配合sentinel

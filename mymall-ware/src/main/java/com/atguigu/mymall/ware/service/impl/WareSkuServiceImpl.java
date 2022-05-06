@@ -219,7 +219,7 @@ public class WareSkuServiceImpl extends ServiceImpl<WareSkuMapper, WareSkuEntity
             String orderSn = taskEntity.getOrderSn();
             //查询订单状态 订单应该是取消的状态
             R r = orderFeignService.getOrderStatus(orderSn);
-            if (r.getCode() == 0) {
+            if (r.getCode() == 200) {
                 //ok
                 OrderVo orderVo = r.getData(new TypeReference<OrderVo>() {
                 });

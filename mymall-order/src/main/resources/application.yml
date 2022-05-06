@@ -2,6 +2,14 @@ server:
   port: 8085
 # DataSource Config
 spring:
+  cache:
+    type: redis
+    redis:
+      time-to-live: 3600000
+      use-key-prefix: true
+      cache-null-values: true
+  session:
+    store-type: redis
   profiles:
     active: dev
   application:

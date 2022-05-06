@@ -2,6 +2,11 @@ server:
   port: 8086
 # DataSource Config
 spring:
+  rabbitmq:
+    host: 127.0.0.1
+    listener:
+      simple:
+        acknowledge-mode: manual
   profiles:
     active: dev
   application:

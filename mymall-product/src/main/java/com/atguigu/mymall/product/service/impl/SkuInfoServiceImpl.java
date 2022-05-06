@@ -47,8 +47,8 @@ public class SkuInfoServiceImpl extends ServiceImpl<SkuInfoMapper, SkuInfoEntity
     @Autowired
     ThreadPoolExecutor executor;
 
-    @Autowired
-    SeckillFeignService seckillFeignService;
+//    @Autowired
+//    SeckillFeignService seckillFeignService;
 
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
@@ -176,21 +176,22 @@ public class SkuInfoServiceImpl extends ServiceImpl<SkuInfoMapper, SkuInfoEntity
             skuItemVo.setImages(images);
         }, executor);
 
-        CompletableFuture<Void> seckillFuture = CompletableFuture.runAsync(() -> {
-            //查询当前sku是否参加秒杀优惠
-            R r = seckillFeignService.getSkuSeckillInfo(skuId);
-            if (r.getCode() == 0) {
-                SeckillSkuInfoVo seckillSkuRedisVo = r.getData(new TypeReference<SeckillSkuInfoVo>() {
-                });
-                skuItemVo.setSeckillSkuInfoVo(seckillSkuRedisVo);
-            }
-        }, executor);
+//        CompletableFuture<Void> seckillFuture = CompletableFuture.runAsync(() -> {
+//            //查询当前sku是否参加秒杀优惠
+//            R r = seckillFeignService.getSkuSeckillInfo(skuId);
+//            if (r.getCode() == 200) {
+//                SeckillSkuInfoVo seckillSkuRedisVo = r.getData(new TypeReference<SeckillSkuInfoVo>() {
+//                });
+//                skuItemVo.setSeckillSkuInfoVo(seckillSkuRedisVo);
+//            }
+//        }, executor);
 
 
 
         //异步编排 - 阻塞等结果
         //等待所有1 2 3 4 5任务都完成 infoFuture可以省略
-        CompletableFuture.allOf(saleAttrFuture, descFuture, baseFuture, imagesFuture, seckillFuture).get();
+//        CompletableFuture.allOf(saleAttrFuture, descFuture, baseFuture, imagesFuture, seckillFuture).get();
+        CompletableFuture.allOf(saleAttrFuture, descFuture, baseFuture, imagesFuture).get();
 
         return skuItemVo;
     }

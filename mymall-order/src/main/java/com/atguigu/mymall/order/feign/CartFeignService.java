@@ -12,7 +12,7 @@ import java.util.List;
  * @description
  */
 //告诉spring cloud 这个接口是一个远程客户端 调用远程服务
-//@FeignClient("mymall-cart")//这个远程服务
+@FeignClient("mymall-cart")//这个远程服务
 public interface CartFeignService {
 
     @GetMapping("/currentUserItems")
